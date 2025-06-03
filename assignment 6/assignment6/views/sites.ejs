@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Collection</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+</head>
+<body>
+
+    <%- include('partials/navbar', { page: "/sites" }) %>
+
+    <div class="hero bg-base-200 rounded-lg p-8 mb-8">
+        <div class="hero-content text-center">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl font-bold">Site Collection</h1>
+                <p class="py-6">Explore Canada's registered national historic sites.</p>
+    
+                <!--  Filter by Region -->
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold mb-2">Filter by Region:</h2>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <a href="/sites?region=Prairie%20Provinces" class="btn btn-secondary">Prairie Provinces</a>
+                        <a href="/sites?region=West%20Coast" class="btn btn-secondary">West Coast</a>
+                        <a href="/sites?region=North" class="btn btn-secondary">North</a>
+                        <a href="/sites?region=Atlantic%20Region" class="btn btn-secondary">Atlantic Region</a>
+                        <a href="/sites?region=Central%20Canada" class="btn btn-secondary">Central Canada</a>
+                      
+                    </div>
+                </div>
+    
+                <!--  Filter by Province/Territory -->
+                <div>
+                    <h2 class="text-lg font-semibold mb-2">Filter by Province/Territory:</h2>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <a href="/sites?provinceOrTerritory=Saskatchewan" class="btn btn-secondary">Saskatchewan</a>
+                        <a href="/sites?provinceOrTerritory=Nova%20Scotia" class="btn btn-secondary">Nova Scotia</a>
+                        <a href="/sites?provinceOrTerritory=Newfoundland%20and%20Labrador" class="btn btn-secondary">Newfoundland and Labrador</a>
+                        <a href="/sites?provinceOrTerritory=New%20Brunswick" class="btn btn-secondary">New Brunswick</a>
+                        <a href="/sites?provinceOrTerritory=Prince%20Edward%20Island" class="btn btn-secondary">Prince Edward Island</a>
+                        <a href="/sites?provinceOrTerritory=Yukon" class="btn btn-secondary">Yukon</a>
+                        <a href="/sites?provinceOrTerritory=Northwest%20Territories" class="btn btn-secondary">Northwest Territories</a>
+                        <a href="/sites?provinceOrTerritory=Nunavut" class="btn btn-secondary">Nunavut</a>
+                        <a href="/sites?provinceOrTerritory=Ontario" class="btn btn-secondary">Ontario</a>
+                        <a href="/sites?provinceOrTerritory=Quebec" class="btn btn-secondary">Quebec</a>
+                        <a href="/sites?provinceOrTerritory=British%20Columbia" class="btn btn-secondary">British Columbia</a>
+                        <a href="/sites?provinceOrTerritory=Alberta" class="btn btn-secondary">Alberta</a>
+                        <a href="/sites?provinceOrTerritory=Manitoba" class="btn btn-secondary">Manitoba</a>
+                     
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container mx-auto p-6">
+        <table class="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2">Image</th>
+                    <th class="border border-gray-300 px-4 py-2">Site Name</th>
+                    <th class="border border-gray-300 px-4 py-2">Date</th>
+                    <th class="border border-gray-300 px-4 py-2">Location</th>
+                    <th class="border border-gray-300 px-4 py-2">Region</th>
+                    <th class="border border-gray-300 px-4 py-2">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% sites.forEach(site => { %>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">
+                            <img src="<%= site.image %>" alt="<%= site.site %>" class="h-16 w-16 object-cover rounded-full">
+                        </td>
+                        <td class="border border-gray-300 px-4 py-2"><%= site.site %></td>
+                        <td class="border border-gray-300 px-4 py-2">
+                            <strong>Date:</strong> <%= site.date %> (<%= site.dateType %>)<br>
+                            <strong>Designated:</strong> <%= site.designated %>
+                        </td>
+                        <td class="border border-gray-300 px-4 py-2">
+                            <%= site.location %>, 
+                            <a href="/sites?provinceOrTerritory=<%= site.ProvinceOrTerritory.name %>" class="btn btn-secondary">
+                                <%= site.ProvinceOrTerritory.name %>
+                            </a>
+                            
+                        </td>
+                        <td class="border border-gray-300 px-4 py-2">
+                            <a href="/sites?region=<%= site.ProvinceOrTerritory.region %>" class="btn btn-secondary">
+                                <%= site.ProvinceOrTerritory.region %>
+                            </a>
+                            
+                        </td>
+                        <td class="border border-gray-300 px-4 py-2">
+                            <a href="/sites/<%= site.siteId %>" class="btn btn-primary">Details</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

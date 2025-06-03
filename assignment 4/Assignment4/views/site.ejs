@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= site.site %> - Details</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Include the navbar partial -->
+    <%- include('partials/navbar', {page: ''}) %>
+
+    <!-- Hero Section -->
+    <div class="hero bg-base-200 rounded-lg p-8 mb-8">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold"><%= site.site %></h1>
+                <p class="py-6">Below, you will find detailed information about the site: <%= site.site %></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Details -->
+    <div class="container mx-auto p-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <img src="<%= site.image %>" alt="<%= site.site %>" class="w-full rounded-lg shadow-lg">
+            </div>
+            <div>
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <p><strong>Site Name: </strong><%= site.site %></p>
+                        <p><strong>Date: </strong><%= site.date %> (<%= site.dateType %>)</p>
+                        <p><strong>Location: </strong><%= site.location %>, <%= site.provinceOrTerritoryObj.name %></p>
+                        <p><strong>Region: </strong><%= site.provinceOrTerritoryObj.region %></p>
+                        <p><strong>Geolocation: </strong><%= site.latitude %>, <%= site.longitude %></p>
+                        <p><strong>Designated: </strong><%= site.designated %></p>
+                        
+                        <div id="quote-container" class="mt-4 p-4 bg-gray-100 rounded-lg">
+                            <p id="quote-text" class="italic">Loading quote...</p>
+                            <p id="quote-author" class="text-right font-bold"></p>
+                        </div>
+                        
+                        <div class="card-actions justify-end mt-4">
+                            <a href="#" onclick="history.back(); return false;" class="btn btn-primary">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("https://quotable.io/random")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("quote-text").innerText = `"${data.content}"`;
+                    document.getElementById("quote-author").innerText = `— ${data.author}`;
+                })
+                .catch(error => {
+                    document.getElementById("quote-text").innerText = "Could not load quote. Please try again later.";
+                });
+        });
+    </script>
+
+</body>
+</html>

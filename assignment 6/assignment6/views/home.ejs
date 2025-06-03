@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Historic Sites</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/navbar', { page: "/" }) %>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-4">
+        <!-- Hero Section -->
+        <div class="hero bg-base-200 rounded-lg p-8 mb-8">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">Explore National Historic Sites</h1>
+                    <p class="py-6">Discover the history and culture of Canada's national historic sites.</p>
+                    <a href="/sites" class="btn btn-primary">View All Sites</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid of Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+           
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-4 pt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Abbot_Pass_hut.jpg" alt="Site Image" class="rounded-xl">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Abbot Pass Refuge Cabin</h2>
+                    <p>An alpine hut located at an elevation of 2925 metres in the Alberta Rockies, near the continental divide in Banff National Park, near its boundary with Yoho National Park in British Columbia</p>
+                    <p><strong>Date:</strong> 1922</p>
+                    <p><strong>Location:</strong> Prairie Provinces, Alberta</p>
+                    <div class="card-actions justify-end">
+                        <a href="/sites/AB001" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-4 pt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Banff_Park_Museum_1.jpg/320px-Banff_Park_Museum_1.jpg" alt="Site Image" class="rounded-xl">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Banff Park Museum</h2>
+                    <p>A rustic log-faced building set prominently within a landscaped park in the Banff townsite, containing early botanical and zoological exhibits from Banff National Park in early twentieth-century glass cases</p>
+                    <p><strong>Date:</strong> 1903 </p>
+                    <p><strong>Location:</strong> Prairie Provinces, Alberta</p>
+                    <div class="card-actions justify-end">
+                        <a href="/sites/AB005" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-4 pt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Algoma_Central_Engine_House_23.JPG/320px-Algoma_Central_Engine_House_23.JPG" alt="Site Image" class="rounded-xl">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Algoma Central Engine House</h2>
+                    <p>A well-preserved example of a brick engine house, and the first in Canada to have an internal turntable</p>
+                    <p><strong>Date:</strong> 1912 </p>
+                    <p><strong>Location:</strong> Fort Macleod, AB</p>
+                    <div class="card-actions justify-end">
+                        <a href="/sites/ON002" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

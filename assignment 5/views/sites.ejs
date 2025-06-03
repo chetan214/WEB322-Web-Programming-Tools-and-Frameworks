@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Collection</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Include the navbar partial -->
+    <%- include('partials/navbar', {page: '/sites'}) %>
+
+    <!-- Hero Section -->
+    <div class="hero bg-base-200 rounded-lg p-8 mb-8">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold">Site Collection</h1>
+                <p class="py-6">Filter by region:
+                    <a href="/sites?region=Atlantic%20Region" class="btn btn-sm btn-primary m-1">Atlantic Region</a>
+                    <a href="/sites?region=Central%20Canada" class="btn btn-sm btn-primary m-1">Central Canada</a>
+                    <a href="/sites?region=Prairie%20Provinces" class="btn btn-sm btn-primary m-1">Prairie Provinces</a>
+                    <a href="/sites?region=West%20Coast" class="btn btn-sm btn-primary m-1">West Coast</a>
+                    <a href="/sites?region=Northern%20Canada" class="btn btn-sm btn-primary m-1">Northern Canada</a>
+                </p>
+                <p class="py-6">Filter by province/territory:
+                    <a href="/sites?provinceOrTerritory=Ontario" class="btn btn-sm btn-secondary m-1">Ontario</a>
+                    <a href="/sites?provinceOrTerritory=Quebec" class="btn btn-sm btn-secondary m-1">Quebec</a>
+                    <a href="/sites?provinceOrTerritory=British%20Columbia" class="btn btn-sm btn-secondary m-1">British Columbia</a>
+                    <a href="/sites?provinceOrTerritory=Alberta" class="btn btn-sm btn-secondary m-1">Alberta</a>
+                    <a href="/sites?provinceOrTerritory=Manitoba" class="btn btn-sm btn-secondary m-1">Manitoba</a>
+                    <a href="/sites?provinceOrTerritory=Nova%20Scotia" class="btn btn-sm btn-secondary m-1">Nova Scotia</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sites Table -->
+    <div class="container mx-auto p-4">
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Site Name</th>
+                        <th>Date & Location</th>
+                        <th>Province/Territory</th>
+                        <th>Region</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% sites.forEach(site => { %>
+                        <tr>
+                            <td>
+                                <div class="avatar">
+                                    <div class="w-16 h-16 rounded">
+                                        <img src="<%= site.image %>" alt="<%= site.site %>">
+                                    </div>
+                                </div>
+                            </td>
+                            <td><%= site.site %></td>
+                            <td>
+                                Date: <%= site.date %> (<%= site.dateType %>)<br>
+                                Designated: <%= site.designated %>
+                            </td>
+                            <td>
+                                <%= site.location %>, 
+                                <a href="/sites?provinceOrTerritory=<%= site.provinceOrTerritoryObj.name %>" class="btn btn-xs btn-info">
+                                    <%= site.provinceOrTerritoryObj.name %>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/sites?region=<%= site.provinceOrTerritoryObj.region %>" class="btn btn-xs btn-info">
+                                    <%= site.provinceOrTerritoryObj.region %>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/sites/<%= site.siteId %>" class="btn btn-xs btn-primary">details</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

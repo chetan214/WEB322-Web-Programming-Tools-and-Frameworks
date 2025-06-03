@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= site.site %> - Site Details</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+</head>
+<body>
+
+    <!--  Include Navbar -->
+    <%- include('partials/navbar', { page: "" }) %>
+
+    <!--  Hero Section -->
+    <div class="hero bg-base-200 rounded-lg p-8 mb-8">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold"><%= site.site %></h1>
+                <p class="py-6">Below, you will find detailed information about the site: <%= site.site %>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Details Grid -->
+    <div class="container mx-auto p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Left Column: Site Image -->
+            <div class="flex justify-center">
+                <% if (site.image) { %>
+                    <img src="<%= site.image %>" 
+                         alt="<%= site.site %>" 
+                         class="rounded-lg shadow-lg w-full max-w-sm">
+                <% } %>
+            </div>
+
+            <!--  Right Column: Site Information -->
+            <div class="text-lg">
+                <p><strong>Site Name:</strong> <%= site.site %></p>
+                <p><strong>Date:</strong> <%= site.date %> (<%= site.dateType %>)</p>
+                <p><strong>Location:</strong> <%= site.location %>, <%= site.ProvinceOrTerritory.name %></p>
+                <p><strong>Region:</strong> <%= site.ProvinceOrTerritory.region %></p>
+                <p><strong>Geolocation:</strong> <%= site.latitude %>, <%= site.longitude %></p>
+                <p><strong>Designated:</strong> <%= site.designated %></p>
+                
+                <% if (site.description) { %>
+                    <p><strong>Description:</strong> <%= site.description %></p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <!--  Quote Section -->
+    <div class="container mx-auto p-6 text-center">
+        <blockquote id="quote" class="italic text-lg text-gray-600">Loading quote...</blockquote>
+        <p id="author" class="text-md font-semibold mt-2"></p>
+    </div>
+
+    <!--  Script to Fetch Quote -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("https://quotable.io/random")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("quote").innerText = `"${data.content}"`;
+                    document.getElementById("author").innerText = `- ${data.author}`;
+                })
+                .catch(error => {
+                    console.error("Error fetching quote:", error);
+                    document.getElementById("quote").innerText = "Could not load quote.";
+                });
+        });
+    </script>
+
+    <!--  Back Button -->
+    <div class="container mx-auto p-6 text-center">
+        <a href="#" onclick="history.back(); return false;" class="btn btn-primary">← Go Back</a>
+    </div>
+
+    <!-- Edit Button (Only if logged in) -->
+    <% if (session.user) { %>
+        <div class="container mx-auto p-6 text-center">
+            <a href="/editSite/<%= site.siteId %>" class="btn btn-secondary">✏️ Edit Site</a>
+        </div>
+    <% } %>
+
+</body>
+</html>

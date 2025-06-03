@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Include the navbar partial -->
+    <%- include('partials/navbar', {page: ''}) %>
+
+    <!-- 404 Section -->
+    <section class="container mx-auto text-center py-12">
+        <h1 class="text-6xl font-bold text-red-600">404</h1>
+        <p class="text-lg text-gray-600 mt-4"><%= message %></p>
+        <img src="https://th.bing.com/th/id/R.c98045cd667447def428ad9b261c0ef4?rik=y8ioZ%2bsKto28oQ&pid=ImgRaw&r=0" alt="404 Image" class="mx-auto w-64 mt-4">
+        <a href="/" class="btn btn-primary mt-4">Return Home</a>
+    </section>
+
+</body>
+</html>

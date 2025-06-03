@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Historic Sites</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <!-- Include the navbar partial -->
+    <%- include('partials/navbar', {page: '/'}) %>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-4">
+        <!-- Hero Section -->
+        <div class="hero bg-base-200 rounded-lg p-8 mb-8">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">Explore National Historic Sites</h1>
+                    <p class="py-6">Discover the history and culture of Canada's national historic sites.</p>
+                    <a href="/sites" class="btn btn-primary">View All Sites</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid of Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+           
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-4 pt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/MicaDam.JPG/320px-MicaDam.JPG" alt="Site Image" class="rounded-xl">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Boat Encampment</h2>
+                    <p>First visited by David Thompson in 1811, the site was an important trans-shipment point for the Hudson's Bay Company Express fur brigades moving to and from the Columbia River across the continent; the site was flooded by hydroelectric development of the river in 1973, and the marker now rests on a point in the Sprague Bay Recreation Site</p>
+                    <p><strong>Date:</strong> 1811</p>
+                    <p><strong>Location:</strong> West Coast, BC</p>
+                    <div class="card-actions justify-end">
+                        <a href="/sites/BC007" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-4 pt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Canadian_Pacific_Railway_Station_Winnipeg.jpg" alt="Site Image" class="rounded-xl">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Brockinton</h2>
+                    <p>An archaeological site with evidence of three distinct cultures: a bison kill and butchering pound circa 800 AD, a Duck Bay culture occupation about 1100–1350, and the first excavated evidence in Canada of the Williams culture from about 1600</p>
+                    <p><strong>Date:</strong> 800 </p>
+                    <p><strong>Location:</strong> Prairie Provinces, Manitoba</p>
+                    <div class="card-actions justify-end">
+                        <a href="/sites/MB004" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-4 pt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Algoma_Central_Engine_House_23.JPG/320px-Algoma_Central_Engine_House_23.JPG" alt="Site Image" class="rounded-xl">
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Acacia Grove / Prescott Housee</h2>
+                    <p>A house on an extensive property in the Annapolis Valley, built for horticulturalist Charles Ramage Prescott; a noted example of Georgian architecture in Canada</p>
+                    <p><strong>Date:</strong> 1809 </p>
+                    <p><strong>Location:</strong> Atlantic region, Nova Scotia</p>
+                    <div class="card-actions justify-end">
+                        <a href="/sites/NS001" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <!-- Include the navbar partial -->
+    <%- include('partials/navbar', {page: '/about'}) %>
+
+    <!-- About Section -->
+    <section class="container mx-auto text-center py-12">
+        <h1 class="text-4xl font-bold">About Me</h1>
+        <p class="text-lg text-gray-600 mt-4">This page is about me.</p>
+    </section>
+
+    <!-- Profile Section -->
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-8">
+        <div>
+            <img src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg" alt="Profile Picture" class="w-full object-contain">
+        </div>
+        <div class="text-center md:text-left p-4">
+            <h2 class="text-2xl font-bold">Chetan Arora</h2>
+            <p class="text-gray-600 mt-2">
+                I'm Chetan Arora.Currently, student of Seneca College  
+             </p>
+        </div>
+    </div>
+
+</body>
+</html>
