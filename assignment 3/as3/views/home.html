@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architectural Sites</title>
+    <link rel="stylesheet" href="../public/css/main.css"/>
+  </head>
+  <body>
+    <div class="navbar bg-base-100">
+      <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl">Architectural Sites</a>
+      </div>
+    
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="../views/about.html">About</a></li>
+          <li>
+            <details>
+              <summary>Region</summary>
+              <ul class="p-2 bg-base-100 right-0">
+                <li><a href="/sites?region=Prairie Provinces">Prairie Provinces</a></li>
+                <li><a href="/sites?region=West Coast">West Coast</a></li>
+                <li><a href="/sites?region=Atlantic region">Atlantic region</a></li>
+                <li><a href="/sites?region=Central Canada">Central Canada</a></li>
+                <li><a href="/sites?region=North">North</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hero bg-base-200 h-[40vh]">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+          </div>
+          <br>
+          <div>
+          <p><a href="/sites" class="btn btn-primary">Get Started</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-4 gap-4">
+      <div><div class="card bg-base-100 w-120 shadow-xl">
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Sagrada_Familia_2022.jpg" alt="Sagrada Familia" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Sagrada Familia</h2>
+          <p>A world-famous basilica designed by Antoni Gaudí, known for its intricate architectural details and ongoing construction since 1882.</p>
+          <div class="card-actions justify-end">
+            <div class="badge badge-outline">Date: 1882 (Construction began)</div>
+            <div class="badge badge-outline">Location: Barcelona, Spain</div>
+            <p><a href="/sites/site_id" class="btn btn-primary">SiteId</a></p>
+          </div>
+        </div>
+      </div></div>
+      <div><div class="card bg-base-100 w-120 shadow-xl">
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Sydney_Opera_House_Sunset.jpg" alt="Sydney Opera House" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Sydney Opera House</h2>
+          <p>One of the most recognizable buildings in the world, known for its distinctive sail-like roof and innovative architectural design.</p>
+          <div class="card-actions justify-end">
+            <div class="badge badge-outline">Date: 1973 (Completed)</div>
+            <div class="badge badge-outline">Location: Sydney, Australia</div>
+            <p><a href="/sites/site_id" class="btn btn-primary">SiteId</a></p>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </body>
+</html>
